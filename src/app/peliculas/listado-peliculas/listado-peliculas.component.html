@@ -1,0 +1,42 @@
+<!-- <h5>Datos de la Película Spider-Man</h5>
+    <div>{{peliculas[0].titulo}}</div>
+    <div>{{peliculas[0].fechaLanzamiento | date}}</div>
+   -->
+
+<app-listado-generico [listado]="peliculas">
+  <!-- <ng-container vacio>
+    <div>Mensaje personalizado para contenido <b>vacío</b></div>
+  </ng-container> -->
+
+  <!-- ng-container contenido : al nombrar "contenido", se accede a la etiqueta ng-content del 
+    componente app-listado-generico. Así, se inyecta directamente este contenido de esta plantilla en la plantilla de
+  app-listado-generico   -->
+  <ng-container contenido> 
+    <div class=peliculas-contenedor>
+      <div *ngFor="let pelicula of peliculas; let index = index" class="pelicula-contenedor">
+        <!-- <div>
+          <strong>Película {{index+1}}.-</strong> {{pelicula.titulo}}
+          <button style="margin-left: 1rem;" (click)="removerPelicula(index)">Remover</button>
+        </div>
+        <div>{{pelicula.fechaLanzamiento | date}}</div>
+        <div>{{pelicula.precio}}</div> -->
+        <a>
+          <img [routerLink]="'pelicula/' + pelicula.id" [src]="pelicula.poster" alt="Poster" />
+        </a>
+        <p>
+          <a [routerLink]="'pelicula/' + pelicula.id">{{ pelicula.titulo }}</a>
+        </p>
+        <div>
+          <a mat-flat-button color="primary" [routerLink]="'peliculas/editar/' + pelicula.id">
+            Editar
+          </a>
+          <button mat-flat-button color="warn"
+          type="button">
+            Borrar
+           </button>
+        </div>
+      </div>
+    </div>
+
+  </ng-container>
+</app-listado-generico>

@@ -1,0 +1,24 @@
+<!-- <div>
+  
+  {{title}}
+</div> -->
+
+<!-- <div>
+  La suma de 2 y 2 es: {{2 + 2}}
+</div> -->
+
+<!-- <div>
+  
+  El doble de 3 es: {{duplicarNumero(3)}}
+</div> -->
+
+<app-rating (rated)="manejarRated($event)"></app-rating>
+<h2>En cines</h2>
+<app-listado-peliculas [peliculas]="peliculasEnCines"></app-listado-peliculas>
+
+<h2>Futuros estrenos</h2>
+<app-listado-peliculas [peliculas]="peliculasProximosEstrenos"></app-listado-peliculas>
+
+<!-- VARIABLE DE REFERENCIA DE PLANTILLA -->
+<!-- <input type="file" style="display: none;" #cargador>
+<button (click)="cargador.click()" style="margin-top: 20px;">Cargar Archivo</button> -->

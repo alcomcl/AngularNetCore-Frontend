@@ -1,0 +1,13 @@
+<mat-tab-group>
+  <mat-tab label="Editar">
+    <!-- Ejecutamos el emit cada vez que haya un cambio en el textarea que esta dentro de este mat-form-field-->
+    <mat-form-field appearance="fill" (change)="changeMarkdown.emit($event.target.value)">
+      <mat-label>{{placeHolderTextArea}}</mat-label>
+      <textarea matInput [(ngModel)]="contenidoMarkdown"></textarea>
+    </mat-form-field>
+    <!-- (input)="inputTextArea($event.target.value)" -->
+  </mat-tab>
+  <mat-tab label="Preview">
+    <markdown [data]="contenidoMarkdown" ngPreserveWhitespaces></markdown>
+  </mat-tab>
+</mat-tab-group>

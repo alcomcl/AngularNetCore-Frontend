@@ -1,0 +1,26 @@
+<div *ngIf="!listado">
+  <span #cargando>
+    <ng-content select="[cargando]"></ng-content>
+  </span>
+  <span *ngIf="!cargando.innerHTML.trim()">
+    <img src="https://media4.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" alt="">
+  </span>
+
+</div>
+
+<div *ngIf="listado?.length === 0">
+  <span #vacio>
+    <!-- select="[vacio]" = se usa para colocar un nombre al ng-content, así poder acceder a la etiqueta 
+      desde otro lugar a traves de ese nombre -->
+    <ng-content select="[vacio]"></ng-content> 
+  </span>
+  <span *ngIf="!vacio.innerHTML.trim()">
+    No hay peliculas para mostrar
+  </span>
+</div>
+
+<ng-container *ngIf="listado && listado.length > 0">
+  <!-- select="[contenido]" : se usa para colocar un nombre al ng-content, así poder acceder a la etiqueta 
+      desde otro lugar a traves de ese nombre -->
+  <ng-content select="[contenido]"></ng-content>
+</ng-container>
